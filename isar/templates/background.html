@@ -1,0 +1,186 @@
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="facebook-domain-verification" content="b3dbt7bkedg6b6hc2o99na3wjklpq6" />
+    <title>
+        {% block head_title %}
+        {% endblock head_title %}
+    </title>
+    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    {% block extra_head %}
+    {% endblock extra_head %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/formatados.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsivo.css' %}">
+    <style>
+       @font-face {
+        font-family: 'Jumper';
+            src: url(../static/fonts/Jumper-Regular.ttf) format('truetype'), url(../static/fonts/Jumper-Bold.ttf) format('truetype');
+            font-weight: normal;
+            font-style: normal;
+       }
+    </style>
+    <link href="https://db.onlinewebfonts.com/c/9eb76028d6e168a3bf7cef0f0806eb45?family=Kobenhavn+W01+Regular" rel="stylesheet">
+</head>
+<body>
+    <header class="header_responsivo">
+        <nav class="navbar navbar-expand-sm d-flex d-lg-none">
+            <div class="container-fluid container">
+                <a class="navbar-brand" href="{% url 'home' %}">
+                    <img src="{% static 'img/Logo_isar.png' %}" class="logo" alt="">
+                </a>
+                <button class="navbar-toggler custom-toggler blue" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse nav-responsive" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="{% url 'sobre-nos' %}">Sobre Nós</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="{% url 'transparencia' %}">Transparência</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="{% url 'noticias' %}">Notícias</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="{% url 'contato' %}">Contato</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <nav class="nav-home nav-bar d-none d-lg-flex">
+            <div class="container-fluid">
+                <div class="row justify-content-between nav">
+                    <div class="col-md-3 nav-brand d-flex align-items-center">
+                        <a href="{% url 'home' %}">
+                            <div class="logo-home escalar">
+                                <img src="{% static 'img/Logo_isar.png' %}" class="logo" alt="">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-9 d-flex align-items-start justify-content-center">
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="{% url 'sobre-nos' %}">Sobre Nós</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="{% url 'transparencia' %}">Transparência</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="{% url 'noticias' %}">Notícias</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="{% url 'contato' %}">Contato</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="collapse menu-ab" id="navbarToggleExternalContent" data-bs-theme="dark">
+                <div class="bg-dark p-4">
+                    <ul class="home_nav_ul menu-options">
+                        <li>
+                            <a class="nav-link" href="{% url 'sobre-nos' %}">Sobre Nós</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="{% url 'transparencia' %}">Transparência</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="{% url 'noticias' %}">Notícias</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="{% url 'contato' %}">Contato</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    {% block content %}
+    {% endblock content %}
+    <footer>
+        <div class="container">
+            <div class="division">
+                <h2 class="title-footer">Endereço</h2>
+                <div class="contact-list">
+                    <div class="contact">
+                        <img class="icon-footer" src="{% static 'img/address-icon.png' %}" alt="">
+                        <a href="https://maps.app.goo.gl/nLHF6DvQ9rvWfVfy6" target="_blank">
+                            Av. Brigadeiro Faria Lima, 1811
+                            - Sala 1119
+                            <br>
+                            Jardim Paulistano - São Paulo/SP
+                        </a>
+                    </div>
+                    <div class="contact">
+                        <img class="icon-footer" src="{% static 'img/wall-clock.png' %}" alt="">
+                        <p>
+                            Horário de Funcionamento: das 8h às 17h
+                        </p>
+                    </div>
+                </div>
+                <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.871048912924!2d-46.69174712548711!3d-23.573074362021103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce57733874acdb%3A0x2e5d422a3a77985c!2sAv.%20Brig.%20Faria%20Lima%2C%201811%20-%20CJ%201119%20-%20Jardim%20Paulistano%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001452-001!5e0!3m2!1spt-BR!2sbr!4v1730123403878!5m2!1spt-BR!2sbr" width="310" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="division right">
+                <h2 class="title-footer">Contato</h2>
+                <div class="contact-list">
+                    <!--
+                    <div class="contact">
+                        <img class="icon-footer" src="{% static 'img/telefone.svg' %}" alt="">
+                        <a href="tel:+5511947973027">
+                            (11) 94797-3027
+                        </a>
+                    </div>
+                    <div class="contact">
+                        <img class="icon-footer" src="{% static 'img/whatsapp.png' %}" alt="">
+                        <a href="https://wa.me/5511947973027" target="_blank">
+                            (11) 94797-3027
+                        </a>
+                    </div>
+                    -->
+                    <div class="contact">
+                        <img class="icon-footer" src="{% static 'img/email.svg' %}" alt="">
+                        <a href="mailto:administrativo@institutoisar.com.br" target="_blank">
+                            administrativo@institutoisar.com.br
+                        </a>
+                    </div>
+                </div>
+                <h3 class="title-footer top">Redes Sociais</h3>
+                <div class="redes">
+                    <a href="https://www.instagram.com/enjoysolucoesmedicas/" target="_blank">
+                        <img class="icon-footer" src="{% static 'img/instagram.svg' %}" alt="">
+                    </a>
+                    <a href="https://web.facebook.com/EnjoySolucoesMedicas" target="_blank">
+                        <img class="icon-footer" src="{% static 'img/facebook.svg' %}" alt="">
+                    </a>
+                    <a href="https://www.linkedin.com/company/enjoy-solu%C3%A7%C3%B5es-m%C3%A9dicas/posts/?feedView=all" target="_blank">
+                        <img class="icon-footer" src="{% static 'img/linkedin.svg' %}" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>@Copyright 2024 - Desenvolvido por KLX Holding - Todos os direitos reservados</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+    {% block script %}
+    {% endblock script %}
+    <script src="{% static 'js/header.js' %}"></script>
+    <script src="{% static 'js/open_header.js' %}"></script>
+</body>
+</html>

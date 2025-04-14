@@ -1,0 +1,133 @@
+.contato-banner.section.introduction{
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) -30%, #000000 98.04%), url(../img/contato-banner.jpg);
+    background-size: cover;
+}
+
+.contato-banner .line{
+    width: 120px;
+    height: 1px;
+    border: 1.7px solid #fff;
+    margin: 0 30px
+}
+.contato-banner .title-box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.contato{
+    margin: 50px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.contato .info{
+    border-right: 1px #1B2557 solid;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    padding: 65px 15%;
+    background-color: #fff;
+}
+
+.info-contato h3{
+    font-size: 24px;
+    color: #17A8BC;
+    font-weight: 900;
+}
+
+.info-contato .line{
+    width: 80%;
+    border: 1px solid #17A8BC;
+    margin: 5px 0 40px;
+}
+
+.info-contato .list{
+    display: flex;
+    flex-direction: column;
+    color: #000;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.subtitle-contact{
+    font-size: 20px;
+    color: #B08A4F;
+    font-weight: 900;
+    margin-bottom: 25px;
+}
+
+.icon-contact{
+    width: 30px;
+}
+
+.redes .icon-contact {
+    cursor: pointer;
+    transition: all ease .5s;
+}
+
+.redes .icon-contact:hover {
+    transform: scale(1.1);
+}
+
+.contato .info .text{
+    color: #1B2557;
+    font-weight: 900;
+    text-align: justify;
+}
+
+.contato .form-contact{
+    border-left: 1px #1B2557 solid;
+    background-color: #fff;
+    padding: 65px 15%;
+}
+
+.contato .form-contact h3{
+    font-size: 24px;
+    color: #17A8BC;
+    font-weight: 900;
+}
+
+.endereco-div{
+    display: grid;
+}
+
+.endereco-div .contact-list{
+    margin-bottom: 50px;
+}
+
+.endereco-div .list{
+    display: flex;
+    flex-direction: column;
+    color: #000;
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.endereco-div iframe{
+    justify-self: center;
+}
+
+.form-contact .line{
+    width: 60%;
+    border: 1px solid #17A8BC;
+    margin: 5px 0 20px;
+}
+
+.contato .form-contact .text {
+    color: #1B2557;
+    font-weight: 900;
+    text-align: justify;
+}
+
+.form-contact .fale-conosco{
+    width: 100%;
+    background-color: #1B2557;
+    padding: 7% 7%;
+    border-radius: 30px;
+}
+
+.fale-conosco .form{
+    margin: 0;
+}

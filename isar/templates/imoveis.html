@@ -1,0 +1,385 @@
+{% extends 'background.html' %}
+{% load static i18n %}
+{% block head_title %}
+    {% trans 'Produtos - Pharma Express' %}
+{% endblock head_title %}
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/imoveis.css' %}">
+{% endblock extra_head %}
+{% block content %}
+    <main>
+        <div class="section introduction imoveis-banner">
+            <h1>Imóveis</h1>
+        </div>
+
+        <div class="search gap-5">
+            <form class="d-flex gap-3" role="search">
+                {% csrf_token  %}
+                <select name="tipo" id="tipo" class="input" form="search">
+                    <option value="" selected>Tipo</option>
+                    {% for tipo in tipos %}
+                        <option value="{{ tipo.name }}">{{ tipo.name }}</option>
+                    {% endfor %}
+                </select>
+                <select name="estado" id="estado" class="input" form="search">
+                    <option value="" disabled selected>Estado</option>
+                    {% for estado in estados %}
+                        <option value="{{ estado.name }}">{{ estado.name }}</option>
+                    {% endfor %}
+                </select>
+                <select name="cidade" id="cidade" class="input" form="search">
+                    <option value="" disabled selected>Cidade</option>
+                </select>
+                <select name="regiao" id="regiao" class="input" form="search">
+                    <option value="" disabled selected>Região</option>
+                </select>
+                <select name="bairro" id="bairro" class="input" form="search">
+                    <option value="" disabled selected>Bairro</option>
+                </select>
+            </form>
+    
+            <button class="reset-filtro btn-turquoise btn-large">Limpar Filtros</button>
+        </div>
+
+        {% if imoveis %}
+            <div class="section products">
+                {% for imovel in imoveis %}
+                <a href="{% url 'imovel' imovel.id %}" class="{{ imovel.tipo }}">
+                    <div class="product">
+                        <img src="{{ imovel.foto.url }}" alt="">
+                        <div>
+                            <p>{{ imovel.tipo }}</p>
+                            <h4>{{ imovel.name }}</h4>
+                            <p>{{ imovel.cidade }}/{{ imovel.estado }}</p>
+                            <p>{{ imovel.regiao }}</p>
+                            <p>{{ imovel.bairro }}</p>
+                        </div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        {% else%}
+        <section class="section aviso">
+            <h4>Não há imóveis cadastrados</h4>
+        </section>
+        {% endif%}
+    </main>
+{% endblock content%}
+
+{% block script %}
+    <script>
+        let productSection = document.querySelector('.section.products')
+        let typeInput = document.getElementById('tipo')
+        const stateInput = document.getElementById('estado');
+        const cityInput = document.getElementById('cidade');
+        const regionInput = document.getElementById('regiao');
+        const bairroInput = document.getElementById('bairro');
+        const reset = document.querySelector('.reset-filtro')
+
+        function filtroTipo(imoveis, tipo){
+            if (tipo){
+                imoveis.forEach(imovel => {
+                    if(!imovel.parentElement.classList.contains(tipo)){
+                        imovel.parentElement.style.display = 'none'
+                    } else{
+                        imovel.parentElement.style.display = 'block'
+                    }
+                })
+            } else{
+                imoveis.forEach(imovel => {
+                    imovel.parentElement.style.display = 'block'
+                })
+            }
+
+            let products = document.querySelectorAll('.product')
+            let verify = 0;
+
+            products.forEach(product =>{
+                if (product.parentElement.style.display === 'none' && verify !== 1){
+                    verify = 0
+                } else {
+                    verify = 1
+                }
+            })
+
+            if (verify === 0){
+                const main = document.querySelector('main')
+                const aviso = document.querySelector('.section.aviso')
+                if (aviso){
+                    aviso.remove()
+                }
+                productSection.style.display = 'none'
+                const div = document.createElement('div')
+                div.classList.add('section')
+                div.classList.add('aviso')
+                const h4 = document.createElement('h4')
+                h4.innerHTML = 'Não foram encontrados imóveis para esse filtro'
+                div.appendChild(h4)
+                main.appendChild(div)
+            } else {
+                const aviso = document.querySelector('.section.aviso')
+                if (aviso){
+                    aviso.remove()
+                }
+                productSection.style.display = 'grid'
+            }
+        }
+
+        function gerarOpcoes(opcoes, controller){
+            let options = [...new Set(opcoes)]
+
+            // Adiciona as novas opções
+            options.forEach(option => {
+                const select = document.createElement('option');
+                select.value = option;
+                select.textContent = `${option}`;
+                controller.appendChild(select);
+            });
+        }
+
+        function organizarImoveis(vitrine, imoveis, type){
+            imoveis.forEach(imovel => {
+                const a = document.createElement('a')
+                a.classList.add(`${imovel.tipo__name}`)
+                a.href = `/imovel/${imovel.id}`
+                const product = document.createElement('div');
+                product.classList.add('product')
+
+                const image = document.createElement('img')
+                image.src = `/media/${imovel.foto}`
+
+                const div = document.createElement('div')
+
+                const tipo = document.createElement('p')
+                tipo.innerHTML = imovel.tipo__name
+
+                const nome = document.createElement('h4')
+                nome.innerHTML = imovel.name
+
+                const cidade = document.createElement('p')
+                cidade.innerHTML = `${imovel.cidade__name}/${imovel.estado__name}`
+
+                const regiao = document.createElement('p')
+                regiao.innerHTML = imovel.regiao__name
+
+                const bairro = document.createElement('p')
+                bairro.innerHTML = imovel.bairro__name
+
+                product.appendChild(image)
+
+                div.appendChild(tipo)
+                div.appendChild(nome)
+                div.appendChild(cidade)
+                div.appendChild(regiao)
+                div.appendChild(bairro)
+                product.appendChild(div)
+
+                a.appendChild(product);
+                vitrine.appendChild(a)
+            });
+        }
+
+        function verificarVitrine(estado, cidade, regiao, bairro, type){
+            let imoveis
+            let products
+
+            fetch(`/get_imoveis?estado=${estado}&cidade=${cidade}&regiao=${regiao}&bairro=${bairro}`)
+                .then(response => response.json())
+                .then(data => {
+                    imoveis = data.imoveis
+                    if(imoveis.length > 0){
+                        productSection = document.querySelector('.section.products')
+                        if(productSection){
+                            productSection.innerHTML = ''
+                            type = typeInput.value
+                            organizarImoveis(productSection, imoveis, type)
+
+                            let products = document.querySelectorAll('.product')
+   
+                            filtroTipo(products, type) 
+                        } else{
+                            const main = document.querySelector('main')
+                            productSection = document.createElement('div')
+                            const aviso = document.querySelector('.section.aviso')
+                            productSection.classList.add('section')
+                            productSection.classList.add('products')
+                            
+                            type = typeInput.value
+                            organizarImoveis(productSection, imoveis, type)
+                            
+                            aviso.remove()
+                            main.appendChild(productSection)
+
+                            let products = document.querySelectorAll('.product')
+
+                            filtroTipo(products, type)
+                        }
+                    } else{
+                        const main = document.querySelector('main')
+                        const div = document.createElement('div')
+                        const vitrine = document.querySelector('.section.products')
+                        div.classList.add('section')
+                        div.classList.add('aviso')
+
+                        vitrine.remove()
+                        const h4 = document.createElement('h4')
+                        h4.innerHTML = 'Não foram encontrados imóveis para esse filtro'
+                        div.appendChild(h4)
+                        main.appendChild(div)
+                    } 
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar imóveis:', error);
+                });
+        }
+
+        reset.addEventListener('click', ()=>{
+            // Limpa as opções anteriores
+            typeInput.innerHTML = '<option value="" disabled selected>Tipo</option>';
+            stateInput.innerHTML = '<option value="" disabled selected>Estado</option>';
+            cityInput.innerHTML = '<option value="" disabled selected>Cidade</option>';
+            regionInput.innerHTML = '<option value="" disabled selected>Região</option>';
+            bairroInput.innerHTML = '<option value="" disabled selected>Bairro</option>';
+            let estado;
+            let tipo;
+
+            fetch(`/reset_filtro`)
+                .then(response => response.json())
+                .then(data => {
+                    imoveis = data.imoveis
+                    estados = data.estados
+                    tipos = data.tipos
+                    productSection = document.querySelector('.section.products')
+
+                    gerarOpcoes(estados, stateInput)
+                    gerarOpcoes(tipos, typeInput)
+
+                    if(productSection){
+                        tipo = ''
+                        productSection.innerHTML = ''
+                        organizarImoveis(productSection, imoveis, tipo)
+                    } else{
+                        const main = document.querySelector('main')
+                        productSection = document.createElement('div')
+                        const aviso = document.querySelector('.section.aviso')
+                        productSection.classList.add('section')
+                        productSection.classList.add('products')
+
+                        tipo = typeInput.value
+                        organizarImoveis(productSection, imoveis, tipo)
+
+                        aviso.remove()
+                        main.appendChild(productSection)
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar imóveis:', error);
+                });
+
+            productSection.innerHTML = ''
+        })
+
+        document.addEventListener('DOMContentLoaded', function() {
+            let state;
+            let city;
+            let region;
+            let bairro;
+            let type = '';
+
+            typeInput.addEventListener('change', function () {
+                const selectedType= this.value;
+                type = selectedType
+                const imoveis = document.querySelectorAll('.product')
+                
+                filtroTipo(imoveis, type)
+            })
+
+            stateInput.addEventListener('change', function() {
+                const selectedState= this.value;
+                city = '';
+                region = '';
+                bairro = '';
+                
+                if (selectedState) {
+                    typeInput = document.getElementById('tipo')
+                    state = selectedState
+                    fetch(`/get_options?estado=${state}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            // Limpa as opções anteriores
+                            cityInput.innerHTML = '<option value="" disabled selected>Cidade</option>';
+                            regionInput.innerHTML = '<option value="" disabled selected>Região</option>';
+                            bairroInput.innerHTML = '<option value="" disabled selected>Bairro</option>';
+
+                            gerarOpcoes(data.opcoes, cityInput)
+                        })
+                        .catch(error => {
+                            console.error('Erro ao buscar cidades:', error);
+                        });
+                    
+                    productSection.innerHTML = ''
+                    verificarVitrine(state, city, region, bairro, type)
+                }
+            });
+
+            cityInput.addEventListener('change', function() {          
+                const selectedCity = this.value;
+                region = '';
+                bairro = '';
+
+                if (selectedCity) {
+                    city = selectedCity 
+                    fetch(`/get_options?estado=${state}&cidade=${city}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            // Limpa as opções anteriores
+                            regionInput.innerHTML = '<option value="" disabled selected>Região</option>';
+                            bairroInput.innerHTML = '<option value="" disabled selected>Bairro</option>';
+
+                            gerarOpcoes(data.opcoes, regionInput)
+                        })
+                        .catch(error => {
+                            console.error('Erro ao buscar regiões:', error);
+                        });
+                    
+                    productSection.innerHTML = ''
+                    verificarVitrine(state, city, region, bairro, type)
+                }
+            });
+
+            regionInput.addEventListener('change', function() {
+                const selectedRegion = this.value;
+                bairro = '';
+
+                if (selectedRegion) {
+                    region = selectedRegion
+                    fetch(`/get_options?estado=${state}&cidade=${city}&regiao=${region}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            // Limpa as opções anteriores
+                            bairroInput.innerHTML = '<option value="" disabled selected>Bairro</option>';
+
+                            gerarOpcoes(data.opcoes, bairroInput)
+                        })
+                        .catch(error => {
+                            console.error('Erro ao buscar bairros:', error);
+                        });
+                    
+                    productSection.innerHTML = ''
+                    verificarVitrine(state, city, region, bairro, type)
+                }
+            });
+
+            bairroInput.addEventListener('change', function(){
+                const selectedBairro = this.value;
+
+                if(selectedBairro){
+                    bairro = selectedBairro
+
+                    productSection.innerHTML = ''
+                    verificarVitrine(state, city, region, bairro, type)
+                }
+            })
+        });
+    </script>
+{% endblock script %}

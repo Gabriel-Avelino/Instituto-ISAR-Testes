@@ -1,0 +1,315 @@
+{% extends 'background.html' %}
+{% load static i18n %}
+{% block head_title %}
+    {% trans 'Home - Imobiliária São João Batista' %}
+{% endblock head_title %}
+{% block extra_head %}
+<style>
+    .news {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        perspective: 1500px;
+    }
+
+    .news-container {
+        width: 100%;
+        align-items: center;
+        display: flex;
+        height: 400px;
+        max-width: 1000px;
+        position: relative;
+        perspective: inherit;
+    }
+
+    .news-controls {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: 30px;
+        height: 100%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 50px;
+        z-index: 10;
+        
+        opacity: 0.2;
+    }
+
+    .news-controls:hover{
+        opacity: 1;
+    }
+
+    .news-controls-previous {
+        left: 0;
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    }
+
+    .news-controls-previous::before {
+        border: solid #fff;
+        border-width: 0 5px 5px 0;
+        content: '';
+        display: inline-block;
+        height: 20px;
+        transform: rotate(135deg);
+        width: 20px;
+    }
+
+    .news-controls-next {
+        right: 0;
+        background: linear-gradient(to left, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    }
+
+    .news-controls-next::before {
+        border: solid #fff;
+        border-width: 0 5px 5px 0;
+        content: '';
+        display: inline-block;
+        height: 20px;
+        transform: rotate(-45deg);
+        width: 20px;
+    }
+
+    .slide {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        height: 100%;
+        opacity: 0;
+        position: absolute;
+        transition: all 0.3s ease-in-out;
+        width: 100%;
+        max-width: 300px;
+        z-index: 0;
+        border-radius: 15px;
+        background-size: contain;
+        background-color: #fff;
+    }
+
+    /* Adicione aqui os estilos para os diferentes estados dos slides */
+    .news-item-3, .news-item-{{ penultimo_index }} {
+        opacity: .4;
+    }
+
+    .news-item-{{ penultimo_index }} {
+        left: 15%;
+        transform: scale(0.8) translateX(-50%) rotateY(45deg);
+    }
+
+    .news-item-2, .news-item-{{ ultimo_index }} {
+        opacity: 0.8;
+        z-index: 1;
+    }
+
+    .news-item-{{ ultimo_index }} {
+        left: 30%;
+        transform: scale(0.9) translateX(-50%) rotateY(30deg);
+    }
+
+    .news-item-1 {
+        box-shadow: -2px 5px 33px 6px rgba(0, 0, 0, 0.35);
+        opacity: 1;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+    }
+
+    .news-item-2 {
+        left: 70%;
+        transform: scale(0.9) translateX(-50%) rotateY(-30deg);
+    }
+
+    .news-item-3 {
+        left: 80%;
+        transform: scale(0.8) translateX(-50%) rotateY(-45deg);
+    }
+
+    .news-container.dragging {
+        user-select: none;
+    }
+
+    .news-container.dragging .slide{
+        user-select: none;
+    }
+
+    @media (max-width: 800px) {
+        .news-item-{{ penultimo_index }} {
+            display: none;
+        }
+        .news-item-3 {
+            display: none;
+        }
+    }
+
+    @media (max-width:515px) {
+        .news-item-2{
+            left: 60%;
+        }
+    }
+</style>
+{% endblock extra_head%}
+{% block content %}
+    <main>
+        <div class="section introduction initial-banner">
+           <div class="div1"></div>
+           <div class="div2"></div>
+        </div>
+
+        <div class="section team">
+            <div class="fraction">
+                <h1 class="title turquoise">Sobre Nós</h1>
+                <p class="text text-about"><e class="blue">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at nulla vel justo fermentum cursus. Com aenean egestas diam, facilisis non sapien nec, faucibus tincidunt est. Curabitur sed feugiat est. Nullam rhoncus justo a urna fermentum, vitae convallis dolor ultrices.</p>
+                <button class="btn-blue mt-4" type="submit" onclick="window.location.href ='{% url 'sobre-nos' %}'">Veja mais</button>
+            </div>
+            <img class="img-home" src="{% static 'img/Predios.jpg' %}">
+        </div>
+        <div class="section information">
+            
+            <!--<div class="info projetos">
+                <h2>Projetos</h2>
+                <p class="text">Para visualizar os projetos que realizamos, clique no botão abaixo:</p>
+                <button class="button-submit" type="submit" onclick="window.location.href ='./templates/projects.html'">Veja mais</button>
+            </div>-->
+        </div>
+        <section class="noticias">
+            <h1>Notícias</h1>
+            <div class="line"></div>
+            {% if noticias%}
+            <div class="news">
+                <button class="news-controls news-controls-previous"></button>
+                <div class="news-container">
+                    {% for noticia in noticias %}
+                        <div class="slide news-item-{{ forloop.counter }}" data-index="{{ forloop.counter }}" draggable="false">
+                            <div class="noticia">
+                                <a href="{% url 'noticia' noticia.id %}" draggable="false">
+                                    <img class="thumb" src="/media/{{ noticia.foto  }}" alt="" draggable="false">
+                                    <h4>{{ noticia.titulo}}</h4>
+                                    <p>{{ noticia.criado_em|date:"d M Y H:i" }}</p>
+                                    <p>{{ noticia.autor }}</p>
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <button class="news-controls news-controls-next"></button>
+            </div>
+            {% else %}
+                <h4 class="aviso">Não há notícias no momento</h4>
+            {% endif %}
+        </section>
+    </main>
+{% endblock content%}
+{% block script %}
+<script>
+    const newsContainer = document.querySelector('.news-container');
+    const newsControls = document.querySelectorAll('.news-controls');
+    const newsItems = document.querySelectorAll('.slide');
+    let initClick = 0
+    let endClick = 0
+    let dragging = false
+    let move
+    const threshold = 30; // Distância mínima para considerar o movimento como swipe
+
+    class Carousel {
+        constructor(container, items, controls) {
+            this.carouselContainer = container;
+            this.carouselControls = controls;
+            this.carouselArray = [...items];
+        }
+
+        updateGallery() {
+            this.carouselArray.forEach(element => {
+                for (let i = 1; i <= {{ ultimo_index }}; i++) {
+                    element.classList.remove(`news-item-${i}`);
+                }
+            });
+
+            this.carouselArray.slice(0, {{ ultimo_index }}).forEach((el, i) => {
+                el.classList.add(`news-item-${i+1}`);
+            });
+        }
+
+        setCurrentState(direction) {
+            if (direction.classList.contains('news-controls-previous')) {
+                this.carouselArray.unshift(this.carouselArray.pop());
+            } else {
+                this.carouselArray.push(this.carouselArray.shift());
+            }
+            this.updateGallery();
+        }
+
+        useControls() {
+            this.carouselControls.forEach(control => {
+                control.addEventListener('click', e => {
+                    e.preventDefault();
+                    this.setCurrentState(control);
+                });
+            });
+        }
+
+        drag(move) {
+            if (Math.abs(move) > threshold) {
+                if (move > 0) {
+                    this.carouselArray.unshift(this.carouselArray.pop());
+                } else if (move < 0) {
+                    this.carouselArray.push(this.carouselArray.shift());
+                }
+                this.updateGallery();
+                move = 0; // Reset move after processing
+            }
+        }
+    }
+
+    const exampleCarousel = new Carousel(newsContainer, newsItems, newsControls);
+
+    exampleCarousel.useControls();
+
+    newsContainer.addEventListener('mousedown', (e) => {
+        initClick = e.pageX;
+        dragging = true;
+        newsContainer.classList.add('dragging');
+    });
+
+    newsContainer.addEventListener('mousemove', (e) => {
+        if (dragging) {
+            endClick = e.pageX;
+            move = endClick - initClick;
+        }
+    });
+
+    newsContainer.addEventListener('mouseup', () => {
+        exampleCarousel.drag(move);
+        move = 0;
+        dragging = false;
+        newsContainer.classList.remove('dragging');
+    });
+
+    newsContainer.addEventListener('touchstart', (e) => {
+        const touch = e.touches[0];
+        initClick = touch.pageX;
+        dragging = true;
+        newsContainer.classList.add('dragging');
+    });
+
+    newsContainer.addEventListener('touchmove', (e) => {
+        if (dragging) {
+            move = 0;
+            const touch = e.touches[0];
+            endClick = touch.pageX;
+            move = endClick - initClick;
+        }
+    });
+
+    newsContainer.addEventListener('touchend', () => {
+        if (dragging) {
+            move = 0;
+            dragging = false;
+            newsContainer.classList.remove('dragging');
+        }
+    });
+</script>
+{% endblock script %}

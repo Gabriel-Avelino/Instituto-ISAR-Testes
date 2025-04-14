@@ -1,0 +1,140 @@
+{% extends 'background.html' %}
+{% load static i18n %}
+{% block head_title %}
+    {% trans 'Contato - Pharma Express' %}
+{% endblock head_title %}
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/contato.css' %}">
+{% endblock extra_head %}
+{% block content %}
+    <main>
+        <div class="section introduction contato-banner">
+            <h1>Contato</h1>
+        </div>
+        <section class="contato">
+            <div class="info">
+                <div class="info-contato">
+                    <h3>Fale Conosco</h3>
+                    <div class="line animate" data-animation="up"></div>
+                    <p class="text">
+                        Para dúvidas, reclamações e ouvidoria, entre em contato através de um dos meios abaixo ou através de nosso formulário:
+                    </p>
+                    <div class="list">
+                        <!--
+                        <div class="contact">
+                            <img class="icon-contact" src="{% static 'img/telefone.svg' %}" alt="">
+                            <a href="tel:+5511947973027">
+                                (11) 94797-3027
+                            </a>
+                        </div>
+                        <div class="contact">
+                            <img class="icon-contact" src="{% static 'img/whatsapp.png' %}" alt="">
+                            <a href="https://wa.me/5511947973027" target="_blank">
+                                (11) 94797-3027
+                            </a>
+                        </div>
+                        -->
+                        
+                        <div class="contact">
+                            <img class="icon-contact" src="{% static 'img/email.svg' %}" alt="">
+                            <a href="mailto:administrativo@institutoisar.com.br" target="_blank">
+                                administrativo@institutoisar.com.br
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--
+                <div class="redes-div">
+                    <h3 class="subtitle-contact">Siga  nossas redes sociais</h3>
+                    <div class="redes">
+                        <a href="https://www.instagram.com/enjoysolucoesmedicas/" target="_blank">
+                            <img class="icon-contact" src="{% static 'img/instagram.svg' %}" alt="">
+                        </a>
+                    </div>
+                </div>
+                -->
+            </div>
+            <div class="form-contact">
+                <div class="fale-conosco">
+                    <form class="form" id="form-cad" enctype="multipart/form-data" action="{% url 'contato' %}" method="POST" role="form">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <div class="form-control">
+                            <label for="name">Nome</label>
+                            <input type="text" id="name" class="input" name="name" placeholder="Nome">
+                            <i class="fa -solid fa-circle-exclamation icon-error" style="color: #b00c0c;"></i>
+                            <i class="fa-solid fa-circle-check icon-success" style="color: #328146;"></i>
+            
+                            <small class="message"></small>
+                        </div>
+            
+                        <div class="container-middle">
+                            <div class="form-control">
+                                <label for="email">E-mail</label>
+                                <input type="text" id="email" class="input" name="email" placeholder="E-mail">
+                                <i class="fa -solid fa-circle-exclamation icon-error" style="color: #b00c0c;"></i>
+                                <i class="fa-solid fa-circle-check icon-success" style="color: #328146;"></i>
+                
+                                <small class="message"></small>
+                            </div>
+                            <div class="form-control">
+                                <label for="telefone">Telefone</label>
+                                <input type="text" id="telefone" maxlength="14" minlength="11" class="input" name="telefone" placeholder="(ddd) 99999-9999">
+                                <i class="fa -solid fa-circle-exclamation icon-error" style="color: #b00c0c;"></i>
+                                <i class="fa-solid fa-circle-check icon-success" style="color: #328146;"></i>
+                
+                                <small class="message"></small>
+                            </div>
+                        </div>
+
+                        <div class="form-control">
+                            <label for="assunto">Assunto</label>
+                            <input type="text" id="assunto" class="input" name="assunto" placeholder="Assunto">
+                            <i class="fa -solid fa-circle-exclamation icon-error" style="color: #b00c0c;"></i>
+                            <i class="fa-solid fa-circle-check icon-success" style="color: #328146;"></i>
+            
+                            <small class="message"></small>
+                        </div>
+            
+                        <div class="form-control">
+                            <label for="message">Mensagem</label>
+                            <textarea name="mensagem" id="message" class="input" cols="30" rows="10"
+                                placeholder="Digite sua mensagem"></textarea>
+                            <i class="fa -solid fa-circle-exclamation icon-error" style="color: #b00c0c;"></i>
+                            <i class="fa-solid fa-circle-check icon-success hidden" style="color: #328146;"></i>
+                            <small class="message">Mensagem de Erro</small>
+                        </div>
+            
+                        <div class="result">
+                            <p class="result-text">
+                                {% if messages %}
+                                    {% for message in messages %}
+                                        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                                            <div class="alert alert-danger">
+                                                <strong>Erro!</strong>
+                                                {{ message }}
+                                                <i class="fa -solid fa-circle-exclamation icon-error" style="color: #b00c0c;"></i>
+                                            </div>
+                                        {% else %}
+                                            <div class="alert alert-success">
+                                                <strong>Sucesso!</strong>
+                                                {{ message }}
+                                                <i class="fa-solid fa-circle-check icon-success hidden" style="color: #328146;"></i>
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            </p>
+                        </div>
+                        <div class="button-box">
+                            <button type="submit" data-button class="btn-turquoise">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock content%}
+{% block script %}
+    <script src="{% static 'js/formValidation.js' %}"></script>
+{% endblock script %}

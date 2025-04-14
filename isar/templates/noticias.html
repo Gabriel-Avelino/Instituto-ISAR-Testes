@@ -1,0 +1,46 @@
+{% extends 'background.html' %}
+{% load static i18n %}
+{% block head_title %}
+    {% trans 'Notícias - Pharma Express' %}
+{% endblock head_title %}
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/noticias.css' %}">
+{% endblock extra_head %}
+{% block content %}
+    <main>
+        <div class="section introduction noticias-banner">
+            <h1>Notícias</h1>
+        </div>
+            <section class="destaques {% if destaques|length == 2 %}destaques2{% elif destaques|length == 3 %}destaques3{% endif %}">
+                {% if noticias %}
+                    {% for destaque in destaques %}
+                        <a href="{% url 'noticia' destaque.id %}" class="destaque {% if forloop.first %}destaque1{% elif forloop.counter == 2 %}destaque2{% endif %}" style="background-image: url('{{ destaque.foto.url }}');">
+                            <div class="destaque-content">
+                                <h2>{{ destaque.titulo }}</h2>
+                                <p>{{ destaque.criado_em|date:"d M Y H:i" }}</p>
+                                <p>{{ destaque.autor }}</p>
+                            </div>
+                        </a>
+                    {% endfor %}
+                {% else %}
+                    <h4>Não há notícias no momento</h4>
+                {% endif %} 
+            </section>
+            {% if noticias and noticias|length > 3 %} 
+            <section class="noticias-page">     
+                {% for outro in outros %}
+                    <a href="{% url 'noticia' outro.id %}" class="noticia">
+                        <img class="thumb" src="/media/{{ outro.foto  }}" alt="">
+                        <div>
+                            <h6 class="categoria">{{ outro.categoria }}</h6>
+                            <h4>{{ outro.titulo }}</h4>
+                            <p>{{ outro.resumo|safe }}</p>
+                            <p class="categoria">{{ outro.criado_em|date:"d M Y H:i" }}</p>
+                            <p class="categoria">Postado por {{ outro.autor }}</p>
+                        </div>
+                    </a>
+                {% endfor %}
+            </section>
+            {% endif %} 
+    </main>
+{% endblock content%}

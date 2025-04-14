@@ -1,0 +1,760 @@
+@media (max-width:1250px) {
+    .noticias-page{
+        gap: 10% 1%;
+        padding: 5% 1%;
+    }
+}
+
+@media (max-width: 1180px) {
+    .banner-inicial h1{
+        font-size: 25px;
+    }
+    .noticias-page{
+        padding: 5%;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .beneficios-text{
+        padding: 0 2%;
+    }
+
+    .servicos .container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        justify-items: center;
+        gap: 50px 0;
+    }
+    .quem_somos {
+        padding: 5% 10% 3%;
+    }
+}
+
+@media (max-width: 1080px) {
+    .quem_somos {
+        padding: 18% 10% 3%;
+    }
+
+    .img-banner{
+        width: 80%;
+        top: -200px;
+    }
+
+    .banner-item{
+        padding: 180px 5% 120px;
+    }
+
+    .banner-inicial h1{
+        font-size: 25px;
+        max-width: 275px;
+        margin-left: 70%;
+    }
+    .section.about .middle-img-text-right {
+        background-image: url(../img/motorista.jpg);
+        background-position: right 0;
+        background-size: cover;
+        right: -7%;
+        top: -9%;
+        width: 45%;
+    }
+
+    .section.about .middle-img-text-left {
+        left: -15%;
+        top: 40%;
+    }
+}
+
+@media (max-width:990px) {
+    .img-about {
+        width: 45%;
+    }
+    .sobre-img{
+        height: 75%;
+    }
+    .servicos{
+        padding: 80px 5%;
+    }
+    .servico{
+        transform: scale(.9);
+    }
+
+    .beneficios{
+        display: flex;
+        flex-direction: column;
+    }
+    .middle-image{
+        border-radius: 30px;
+    }
+    .grafismo{
+        width: 50%;
+    }
+    .quem_somos{
+        flex-direction: column;
+        padding: 5% 5% 0%;
+        align-items: center;
+    }
+    .sobre{
+        position: relative;
+        width: 75%;
+        max-width: 400px;
+        max-height: 400px;
+        aspect-ratio: 1 / 1;
+    }
+    .quem-text{
+        padding: 10% 0 10% 0%;
+    }
+    .section.products{
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 40px 5%;
+    } 
+    .section.relacionados{
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 40px 5%;
+    } 
+    .mission {
+        padding: 100px 3% 80px;
+    }
+}
+
+@media(max-width: 939px){
+    .section.introduction .line{
+        width: 50px;
+    }
+    
+    .section.introduction h1{
+        font-size: 2.2rem;
+    }
+
+    .section.introduction{
+        background-size: cover;
+        background-position: center;
+    }
+    .copyright p{
+        font-size: 12px;
+    }
+
+    .section.about{
+        gap: 40px;
+    }
+    
+    footer .container .division{
+        width: 100%;
+    }
+    .map{
+        width: 300px;
+        height: 175px;
+    }
+    .adress-text, .contact-text{
+        font-size: 0.9em;
+        width: 250px;
+    }
+    .icon{
+        width: 20px;
+        height: 20px;
+    }
+
+    .contact-page .container .boxes{
+        flex-direction: column-reverse;
+    }
+
+    .contact-info{
+        width: 100%;
+        border: none;
+    }
+
+    .speak-form{
+        width: 100%;
+    }
+    .contact-page .container .speak-form .form {
+        width: 100%;
+        padding: 0 30px 40px 30px;
+    }
+
+    .division.contact-box .redes-sociais .redes-buttons{
+        width: 200px;
+    }
+
+    .line{
+        width: 50px;
+    }
+}
+
+@media (max-width:930px) {
+    .destaques{
+        min-height: 500px;
+    }
+    .destaque-content h2{
+        font-size: 18px;
+    }
+
+    .noticias-page{
+        padding: 50px 5%;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width:915px) {
+    .principios{
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+}
+
+@media (max-width:890px) {
+    .section.information > .info {
+        width: 45%;
+        padding: 5%;
+    }
+    .associe.form{
+        width: 100%;
+    }
+    .form{
+        width: 100%;
+    }
+    .associe .form{
+        width: 100%;
+    }
+    .associe {
+        padding: 10% 10%;
+    }
+    .services-info{
+        display: flex;
+        flex-direction: column;
+    }
+    .middle-text{
+        padding: 10%;
+    }
+    .frase{
+        padding: 0 4% 10%;
+    }
+    .frase p {
+        font-size: 14px;
+        width: 100%;
+    }
+    .beneficios-text{
+        padding: 10% 0;
+    }
+    .nav-link{
+        font-size: 12px;
+    }
+    .navbar-nav{
+        width: 100%;
+    }
+
+    .banner-inicial h1{
+        align-self: center;
+        width: 50%;
+        margin-left: 0%;
+        max-width: inherit;
+    }
+
+    .banner-page p{
+        width: 70%;
+    }
+
+    .img-banner{
+        display: none;
+    }
+
+    .banner-item{
+        background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 120%), url(../img/familia-funcional.jpeg) ;
+        background-position: top;
+    }
+}
+
+@media (max-width:840px) {
+    footer .container{
+        padding: 4% 5% 2%;
+    }
+    .contato .info{
+        padding: 65px 10%;
+    }
+
+    .principios{
+        padding: 5% 2%;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width:790px) {
+    .about-text-img{
+        align-self: center;
+        width: 70%;
+    }
+    .section.about .middle-img-text-left{
+        position: inherit;
+        width: 100%;
+    }
+    .section.about .middle-img-text-right{
+        position: inherit;
+        width: 100%;
+    }
+    .img-about {
+        width: 80%;
+    }
+    .section.about{
+        padding: 10%;
+        flex-direction: column;
+    }
+    .section.about.gray{
+        padding: 10%;
+        flex-direction: column-reverse;
+    }
+    .section.about .text-box{
+        width: 100%;
+    }
+    .grafismo{
+        width: 70%;
+    }
+    .quem-text{
+        padding: 10% 0 10% 0%;
+    }
+
+    .middle-image{
+        width: 85%;
+    }
+    .representantes{
+        flex-direction: column;
+        gap: 15%;
+        margin-top: -15%;
+        padding-bottom: 0;
+    }
+
+    .representante{
+        max-width: 100%;
+        width: 100%;
+        padding: 15%;
+        margin-bottom: 80px;
+    }
+    .destaques{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .destaque{
+        width: 100%;
+        min-height: 400px;
+    }
+    .product-description{
+        flex-direction: column;
+    }
+    .product-description img{
+        width: 70%;
+    }
+}
+
+@media (max-width:770px) {
+    .valores-box {
+        display: flex;
+        flex-direction: column;
+    }
+    .valores{
+        width: 100%;
+    }
+    .mission {
+        padding: 30px 15% 0px;
+    }
+    .finally {
+        padding: 0 5% 50px 5%;
+        text-align: center;
+    }
+    footer .container{
+        display: flex;
+        flex-direction: column-reverse;
+        padding: 4% 15% 2%;
+    }
+
+    h2.title-footer{
+        margin-left: 0;
+    }
+
+    h3.title-footer{
+        margin-left: 0;
+    }
+
+    .division{
+        width: 100%;
+        align-items: center;
+        padding: 40px 0;
+    }
+
+    .division.right{
+        border: none;
+        padding-left: 0;
+    }
+    .servicos .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .perguntas{
+        grid-template-columns: 1fr;
+    }
+
+    .section.ideais{
+        padding: 0;
+        flex-direction: column;
+    }
+
+    .principios{
+        padding: 80px 5% 5%;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .principio {
+        padding: 10%;
+    }
+
+    .middle-image.border{
+        width: 70%;
+    }
+
+    .post{
+        flex-direction: column;
+    }
+
+    .blog-post{
+        padding: 5% 2%;
+        width: 100%;
+    }
+
+    .sugestoes{
+        width: 100%;
+        padding: 5% 2%;
+    }
+
+    .sugestoes-container{
+        place-items: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        padding: 0;
+    }
+    .servicos .line {
+        width: 50%;
+    }
+}
+
+@media (max-width: 760px) {
+    .contato{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .noticias-page .noticia h4{
+        margin: 0 20px 10px;
+    }
+    .noticias-page .noticia h6{
+        margin: 0 20px 10px;
+    }
+    .noticias-page .noticia p{
+        margin: 0 20px 10px;
+    }
+}
+
+@media (max-width: 690px) {
+    .section.introduction .line{
+        display: none;
+    }
+
+    .section.team{
+        justify-content: center;
+        padding: 50px 0 50px 0;
+    }
+
+    .section.team .fraction{
+        left: auto;
+        width: 60%;
+        max-width: inherit;
+    }
+
+    .fraction{
+        width: 100%;
+    }
+
+    .finally{
+        padding: 0 10% 10%;
+    }
+
+    nav ul{
+        width: 100%;
+    }
+
+    .banner-item{
+        padding: 180px 4% 85px;
+    }
+
+    .banner-inicial h1 {
+        width: 65%;
+        font-size: 20px;
+    }
+
+    .quem-text h1{
+        font-size: 26px;
+    }
+
+    .servicos h1{
+        font-size: 26px;
+    }
+
+    .beneficios-text h1{
+        font-size: 26px;
+    }
+
+    .noticias h1{
+        font-size: 26px;
+    }
+
+    .associe h1{
+        width: 120px;
+        font-size: 26px;
+    }
+
+    .galery-wrapper2{
+        width: 80%;
+    }
+    .section.products{
+        grid-template-columns: 1fr 1fr;
+        padding: 40px 5%;
+    } 
+    .section.relacionados{
+        grid-template-columns: 1fr 1fr;
+        padding: 40px 5%;
+    } 
+    .blog-post-title{
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 630px) {
+    .noticias-page{
+        grid-template-columns: 1fr;
+    }
+    .quem-text{
+        width: 80%;
+    }
+    .noticias-page .noticia {
+        flex-direction: column;
+    }
+    .noticias-page .noticia h6 {
+        margin: 20px 5% 10px;
+    }
+    .noticias-page .noticia .thumb {
+        width: 65%;
+    }
+    .section.information > .info {
+        padding: 7%;
+        width: 60%;
+    }
+}
+
+@media (min-width: 576px) {
+    .container, .container-sm {
+        max-width: none;
+    }
+}
+
+@media (max-width: 575px) {
+    .background-color{
+        background-color: #fff;
+    }
+    .transparencia-banner.section.introduction h1{
+        font-size: 2em;
+    }
+    .text-about {
+        font-size: 0.9em;
+    }
+    .section.team .fraction{
+        width: 80%;
+    }
+    .sugestions h2{
+        margin: 0;
+        align-self: center;
+    }
+    .navbar-brand{
+        width: 70%;
+    }
+    .container-middle{
+        display: block;
+    }
+
+    .work-form{
+        padding: 50px 5%;
+    }
+
+    nav ul{
+        margin-top: 15px;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .product-description img{
+        width: 90%;
+    }
+
+    .destaques{
+        padding: 50px 5%;
+    }
+
+    .destaque{
+        width: 100%;
+        min-height: 200px;
+    }
+
+    .banner-page p{
+        width: 100%;
+        font-size: 12px;
+    }
+
+    .galery2{
+        width: 250px;
+    }
+
+    .img-about {
+        width: 100%;
+    }
+}
+
+@media (max-width:500px) {
+    .atividades-destaque h2{
+        font-size: 20px;
+    }
+    .atividades-destaque h3{
+        font-size: 16px;
+    }
+    .atividades-destaque .line{
+        min-width: 0;
+        width: 80%;
+    }
+    .section.information > .info {
+        padding: 10%;
+        width: 75%;
+    }
+}
+
+@media (max-width:475px) {
+    .text.white {
+        font-size: 1.0em;
+    }
+    .section.products{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    } 
+    .section.relacionados{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    } 
+    .sugestoes{
+        padding: 5% 2%;
+    }
+    .sugestoes-container{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+    .work-form .form{
+        width: 100%;
+    }
+    .servicos .line {
+        width: 70%;
+    }
+    .copyright {
+        padding: 20px 5%;
+    }
+    .about-text-img {
+        width: 90%;
+    }
+    .noticias .aviso{
+        padding: 10%;
+        text-align: center;
+    }
+    .quem-text{
+        width: 100%;
+    }
+    .product-description img{
+        width: 100%;
+    }
+    footer .container {
+        display: flex;
+        flex-direction: column-reverse;
+        padding: 4% 10% 2%;
+    }
+    .valores {
+        padding: 15% 10%;
+    }
+}
+
+@media (max-width: 429px) {
+    .section.introduction.initial-banner h1{
+        width: 200px;
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 375px) {
+    .mission {
+        padding: 30px 10% 0px;
+    }
+    .section.team .fraction{
+        width: 90%;
+    }
+    .section.introduction.initial-banner h1 {
+        width: 200px;
+    }
+    .form-contact .line{
+        width: 90%;
+    }
+    .sobre{
+        width: 100%;
+    }
+    .finally{
+        padding: 5% 15% 10%;
+    }
+    .atividades-destaque .line{
+        width: 90%;
+    }
+    .contact-list .contact a{
+        font-size: 14px;
+    }
+    .contact a{
+        font-size: 12px;
+    }
+    .contact p{
+        font-size: 12px;
+    }
+    footer .contact p{
+        font-size: 14px;
+    }
+    .sobre-img {
+        border-radius: 15px;
+    }
+    .section.information > .info {
+        padding: 10%;
+        width: 90%;
+    }
+}
+
+@media (max-width: 340px) {
+    .contato .info{
+        padding: 10% 5%
+    }
+
+    .endereco-div iframe{
+        width: 290px;
+    }
+
+    .map{
+        width: 290px;
+    }
+}
+
+@media (max-width:320px) {
+    .contact-list{
+        width: 100%;
+    }
+}

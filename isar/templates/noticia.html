@@ -1,0 +1,101 @@
+{% extends 'background.html' %}
+{% load static i18n %}
+{% block head_title %}
+    {% trans 'Notícias - Pharma Express' %}
+{% endblock head_title %}
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/noticia.css' %}">
+{% endblock extra_head %}
+{% block content %}
+    <main>
+        <div class="section introduction noticias-banner">
+            <h1>Notícias</h1>
+        </div>
+        <section class="post">
+            <div class="blog-post">
+                <h2 class="blog-post-title">
+                  {{ post.titulo }}
+                </h2>
+                <p class="blog-post-meta">{{ post.criado_em|date:"d M Y H:i"  }}, por {{ post.autor }}</p>
+                <div class="redes">
+                    <a class="icon" href="https://api.whatsapp.com/send?text={{ current_url|urlencode }}" target="_blank">
+                        <img src="{% static 'img/whatsapp.png' %}" alt="">
+                    </a>
+                    <a class="icon" href="https://www.facebook.com/sharer/sharer.php?u={{ current_url|urlencode }}" target="_blank">
+                        <img src="{% static 'img/facebook.svg' %}" alt="">
+                    </a>
+                    <a class="icon" href="https://www.linkedin.com/shareArticle?mini=true&url={{ current_url|urlencode }}" target="_blank">
+                        <img src="{% static 'img/linkedin.svg' %}" alt="">
+                    </a>
+                    <a class="icon" id="share-button" href="javascript:void(0)" onclick="share()">
+                        <img width="25" height="25" src="{% static 'img/compartilhar.png' %}" alt="">
+                    </a>
+                </div>
+                <div class="fotos">
+                    {% if fotos|length > 1 %}
+                        <button class="foto-controls controls-previous"></button>
+                    {% endif %}
+                    <div class="fotos-galery galery-wrapper">
+                        <div class="galery foto-galery">
+                            {% for foto in fotos %}
+                                <div class="foto item2 {% if forloop.first %}current-item{% endif %}">
+                                    <img src="{{ foto.file.url  }}" alt="">
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% if fotos|length > 1 %}
+                        <button class="foto-controls controls-next"></button>
+                    {% endif %}
+                </div> 
+                
+                <div class="blog-post-content">
+                    {{ post.conteudo|safe }}
+                </div>
+            </div>
+            {% if sugestoes %}
+            <div class="sugestoes">
+                <h4 class="sugestoes-title">Últimas Notícias</h4>
+                <div class="sugestoes-container">
+                    {% for sugestao in sugestoes %}
+                        <a href="{% url 'noticia' sugestao.id %}" class="noticia sugestao">
+                            <img class="thumb" src="/media/{{ sugestao.foto  }}" alt="">
+                            <h4>{{ sugestao.titulo}}</h4>
+                            <p>{{ sugestao.criado_em|date:"d M Y H:i" }}</p>
+                            <p>{{ sugestao.autor }}</p>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </section> 
+    </main>
+{% endblock content%}
+{% block script %}
+<script src="{% static 'js/pic_carousel.js' %}"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var images = document.querySelectorAll(".blog-post-content img");
+        images.forEach(function(img) {
+            img.style.width = "100%";
+            img.style.height = "auto";
+        });
+        var shareButton = document.getElementById('share-button');
+        if (navigator.share === undefined) {
+            shareButton.style.display = 'none';
+        }
+    });
+
+    function share(){
+	if (navigator.share !== undefined) {
+		navigator.share({
+			title: '{{ post.titulo }}',
+			text: '{{ post.resumo }}',
+			url: window.location.href,
+		})
+		.then(() => console.log('Successful share'))
+		.catch((error) => console.log('Error sharing', error));
+	}
+}
+</script>
+{% endblock script %}

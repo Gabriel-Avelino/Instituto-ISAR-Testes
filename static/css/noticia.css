@@ -1,0 +1,153 @@
+.noticias-banner.section.introduction{
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) -30%, #000000 98.04%), url(../img/noticias-banner.jpg);
+    background-size: cover;
+}
+
+.noticias-banner .line{
+    width: 120px;
+    height: 1px;
+    border: 1.7px solid #fff;
+    margin: 0 30px
+}
+
+.noticias-banner .title-box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.post{
+    display: flex;
+    flex-direction: row;
+}
+
+.sugestoes{
+    width: 30%;
+    padding: 5% 0;
+}
+
+.sugestoes h4{
+    font-weight: 900;
+    color: #000;
+}
+
+.sugestoes-title{
+    margin-bottom: 2.5em;
+}
+
+.sugestoes-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding-right: 15%;
+}
+
+.sugestao.noticia{
+    min-height: 100%
+}
+
+.sugestao.noticia:hover,
+.sugestao.noticia:hover h4,
+.sugestao.noticia:hover p {
+    color: #b22c2c;
+}
+
+.sugestao .thumb{
+    height: auto;
+    aspect-ratio: 1/0.7;
+    border-radius: 15px;
+}
+
+.blog-post{
+    width: 70%;
+    padding: 5% 10%;
+}
+
+.blog-post-title {
+    font-weight: 900;
+    color: #000;
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+
+.blog-post img {
+    border-radius: 30px;
+    margin-bottom: 2.5em;
+}
+
+.blog-post p {
+    font-size: 16px;
+    text-align: justify;
+}
+
+.blog-post p.blog-post-meta {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 1.5em;
+    text-align: left;
+}
+
+.blog-post .icon{
+    display: block;
+    width: 25px;
+    height: 25px;
+    transition: all ease .5s;
+}
+
+.blog-post .icon:hover{
+    transform: scale(1.1);
+}
+
+.blog-post .icon img:hover{
+    transform: scale(1.1);
+}
+
+.blog-post .redes{
+    width: 170px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1.5em;
+}
+
+.fotos {
+    width: 100%;
+    position: relative;
+    margin-bottom: 50px;
+    overflow: hidden; /* Adicione isso para esconder as fotos que estão fora da visão */
+}
+
+.fotos-galery {
+    border-radius: 30px;
+}
+
+.foto-galery {
+    display: flex;
+    transition: transform 0.5s ease; /* Para animação de transição suave */
+    width: 100%;
+    border-radius: 30px;
+}
+
+.foto {
+    position: relative;
+    min-width: 100%; /* Cada item ocupará 100% da largura da galeria */
+    box-sizing: border-box;
+}
+
+.foto img {
+    width: 100%; /* A imagem vai ocupar 100% da largura do contêiner .foto */
+    height: auto;
+    margin: 0;
+}
+
+.foto p{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5));
+    border-radius: 0 0 30px 30px;
+    color: #fff;
+    padding: 20px 20px;
+}

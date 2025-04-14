@@ -1,0 +1,9 @@
+venv
+.env
+db.sqlite3
+imobiliaria/__pycache__
+imobiliaria/migrations/__pycache__
+blog/__pycache__
+blog/migrations/__pycache__
+core/__pycache__
+media

@@ -1,0 +1,50 @@
+{% extends 'background.html' %}
+{% load static i18n %}
+{% block head_title %}
+    Sobre Nós - Imobiliária São João Batista
+{% endblock head_title%}
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock extra_head %}
+{% block content %}
+    <main>
+        <div class="section introduction about-banner">
+            <h1>Sobre Nós</h1>
+        </div>
+        <div class="section about">
+            <img class='img-about' src="{% static 'img/atendimento.jpg' %}" alt="">
+            <div class="text-box">
+                <p class='text justify'><e class='blue'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</e> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed nisl vitae justo cursus scelerisque. Nulla facilisi. Vivamus convallis erat nec diam malesuada, vel pharetra augue porttitor. 
+                </p>
+                <p class='text justify'>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+            </div>
+        </div>
+        <div class="section about gray">
+            <div class="text-box">
+                <p class='text justify'><e class='turquoise'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.</e> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae justo non urna luctus tincidunt. Curabitur non sem ut elit efficitur fermentum, sed posuere lorem id quam congue, nec malesuada enim pulvinar.
+                </p>
+                <p class='text justify'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <img class='img-about' src="{% static 'img/diferencial.jpg' %}" alt="">
+        </div>
+        <div class="mission">
+            <div class="valores-box">
+                <p class='valores justify'><b class='blue'>Missão</b> <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.</p>
+                <p class='valores justify'><b class='blue'>Visão</b> <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla facilisi, sed vulputate ipsum venenatis.</p>
+                <div class="valores justify"><b class='blue'>Valores</b> 
+                    <ul>
+                        <li>Lorem ipsum dolor</li>
+                        <li>Lorem ipsum dolor</li>
+                        <li>Lorem ipsum dolor</li>
+                        <li>Lorem ipsum dolor</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--
+        <div class="finally">
+            <p class='text blue'><b>"Comprometidos em facilitar sua jornada na compra e venda de imóveis, garantimos as melhores soluções para você."</b></p>
+        </div>
+        -->
+    </main>
+{% endblock content %}

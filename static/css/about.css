@@ -1,0 +1,127 @@
+.section.introduction.about-banner{
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) -30%, #000000 98.04%), url(../img/about-banner.jpg);
+    background-size: cover;
+}
+
+.about-banner .title-box{
+    align-self: flex-end;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.text{
+    font-size: 1.1em;
+    text-align: center;
+    font-weight: lighter;
+}
+.white{
+    color: #fff;
+}
+
+.text.white{
+    align-self: flex-start;
+    font-size: 1.1em;
+}
+
+.about-banner .line{
+    width: 120px;
+    height: 1px;
+    border: 1.7px solid #fff;
+    margin: 0 30px
+}
+
+.float-button:hover{
+    transform: scale(1.2);
+}
+
+.float-button img{
+    width: 75%;
+    height: 75%;
+}
+
+.turquoise{
+    color: #B08A4F;
+}
+
+.blue{
+    color: #1B2557;
+}
+
+.text-about{
+    margin-top: 40px;
+    width: 64%;
+    font-size: 1.5em;
+    text-align: justify;
+}
+
+.justify{
+    text-align: justify;
+}
+
+.img-about{
+    width: 40%;
+    height: auto;
+    aspect-ratio: 1/0.7;
+    border-radius: 30px;
+    grid-area: i;
+}
+
+.title {
+    display: flex;
+    font-size: 2.5em;
+    font-weight: bolder;
+    text-align: center;
+    justify-content: center;
+}
+
+.section.about{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 100px;
+    grid-gap: 100px;
+    justify-content: space-evenly
+}
+
+.finally{
+    padding: 0 10% 50px 10%;
+    text-align: center;
+}
+
+.text-box {
+    grid-area: b;
+}
+
+.section.about.gray{ 
+    background-color: #d9d9d9;
+}
+
+.mission{
+    padding: 100px 15% 80px;
+}
+
+.valores-box{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #1B2557
+}
+
+.valores{
+    font-size: 1.1em;
+    height: 100%;
+    margin: 0;
+    padding: 15%;
+    background-color: #fff;
+}
+
+.valores ul{
+    display: flex;
+    flex-direction: column;
+    padding-left: 1em;
+    gap: 10px;
+}
