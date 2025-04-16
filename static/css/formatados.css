@@ -44,21 +44,21 @@
     color: #1B2557;
 }
 
-.btn-turquoise{
+.btn-green{
     width: 90px;
     height: 40px;
     border-radius: 20px;
     border: none;
-    background-color: #17A8BC;
+    background-color: #259460;
     color: #fff;
     cursor: pointer;
     transition: 1s all ease;
 }
 
-.btn-turquoise:hover{
+.btn-green:hover{
     background-color: #fff;
-    border: 1px solid #17A8BC;
-    color: #17A8BC;
+    border: 1px solid #259460;
+    color: #259460;
 }
 
 .btn-large {

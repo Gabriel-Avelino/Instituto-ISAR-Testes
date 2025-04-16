@@ -33,13 +33,13 @@
 
 .info-contato h3{
     font-size: 24px;
-    color: #17A8BC;
+    color: #259460;
     font-weight: 900;
 }
 
 .info-contato .line{
     width: 80%;
-    border: 1px solid #17A8BC;
+    border: 1px solid #259460;
     margin: 5px 0 40px;
 }
 
@@ -85,7 +85,7 @@
 
 .contato .form-contact h3{
     font-size: 24px;
-    color: #17A8BC;
+    color: #259460;
     font-weight: 900;
 }
 
@@ -111,7 +111,7 @@
 
 .form-contact .line{
     width: 60%;
-    border: 1px solid #17A8BC;
+    border: 1px solid #259460;
     margin: 5px 0 20px;
 }
 

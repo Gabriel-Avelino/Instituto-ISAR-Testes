@@ -36,7 +36,7 @@ header .container-fluid{
 
 .nav-link{
     font-weight: 900;
-    color: #17A8BC;
+    color: #259460;
     transition: all ease 1s;
 }
 
@@ -392,7 +392,7 @@ img{
 }
 
 .turquoise{
-    color: #17A8BC;
+    color: #259460;
 }
 
 .blue{
@@ -410,7 +410,7 @@ img{
     flex-direction: row;
     justify-content: center;
     padding: 40px 0 40px 0;
-    background-color: #17A8BC;
+    background-color: #259460;
     color: #fff;
     font-weight: 900;
     text-align: center;
