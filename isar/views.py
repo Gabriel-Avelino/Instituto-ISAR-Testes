@@ -23,18 +23,8 @@ def index(request):
 def sobreNos(request):
     return render(request, 'about.html')
 
-'''     
-def imoveis(request):
-    imoveis = Imovel.objects.all()
-    estados = Estado.objects.all()
-    tipos = Tipo.objects.all()
-    return render(request, 'imoveis.html', {'imoveis': imoveis, 'estados': estados, 'tipos':tipos})
-
-def imovel(request, id):
-    imovel = Imovel.objects.get(id=id)
-    sugestoes = Imovel.objects.filter(tipo=imovel.tipo, cidade=imovel.cidade, estado=imovel.estado, bairro=imovel.bairro, regiao=imovel.regiao).filter(~Q(id=imovel.id))
-    return render(request, 'imovel.html', {'imovel': imovel, 'sugestions': sugestoes})
-'''  
+def governanca(request):
+    return render(request, 'governanca.html')
 
 def transparencia(request):
     # Cria um OrderedDict para garantir a ordem dos dropdowns
