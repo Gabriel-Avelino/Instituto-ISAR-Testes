@@ -27,24 +27,24 @@
     padding: 15px 50px;
 }
 
-.btn-blue{
+.btn-green{
     width: 90px;
     height: 40px;
     border-radius: 20px;
     border: none;
-    background-color: #1B2557;
+    background-color: #20512E;
     color: #fff;
     cursor: pointer;
     transition: 1s all ease;
 }
 
-.btn-blue:hover{
+.btn-green:hover{
     background-color: #fffff096;
-    border: 1px solid #1B2557;
-    color: #1B2557;
+    border: 1px solid #20512E;
+    color: #20512E;
 }
 
-.btn-green{
+.btn-light-green{
     width: 90px;
     height: 40px;
     border-radius: 20px;
@@ -55,7 +55,7 @@
     transition: 1s all ease;
 }
 
-.btn-green:hover{
+.btn-light-green:hover{
     background-color: #fff;
     border: 1px solid #259460;
     color: #259460;

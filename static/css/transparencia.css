@@ -24,7 +24,7 @@
 .dropdown {
     width: 100%;
     cursor: pointer;
-    color: #1B2557;
+    color: #20512E;
     font-weight: 900;
     font-size: 20px;
     padding: 10px;
@@ -67,6 +67,6 @@
 }
 
 .doc-link:hover{
-    color: #1B2557;
+    color: #20512E;
     text-decoration: underline;
 }

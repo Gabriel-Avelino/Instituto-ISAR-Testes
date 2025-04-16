@@ -46,7 +46,7 @@ header .container-fluid{
 }
 
 .nav-link:hover{
-    color: #1B2557;
+    color: #20512E;
     transform: scale(1.1);
 }
 
@@ -304,7 +304,7 @@ footer .container{
 }
 
 h2.title-footer{
-    color: #1B2557;
+    color: #20512E;
     font-weight: 700;
     font-size: 24px;
     margin-left: 30px;
@@ -356,7 +356,7 @@ h3.title-footer{
 }
 
 .contact a:hover{
-    color: #1B2557;
+    color: #20512E;
     text-decoration: none;
 }
 
@@ -391,12 +391,12 @@ img{
     margin-top: 50px;
 }
 
-.turquoise{
+.light-green{
     color: #259460;
 }
 
-.blue{
-    color: #1B2557;
+.green{
+    color: #20512E;
 }
 
 .map-contact{
@@ -462,19 +462,19 @@ img{
 .noticias .aviso{
     align-self: center;
     justify-self: center;
-    color: #1B2557;
+    color: #20512E;
 }
 
 .noticias h1{
     margin: 80px 10% 20px;
     font-size: 32px;
-    color: #1B2557;
+    color: #20512E;
 }
 
 .noticias .line{
     margin: 0px 10% 40px;
     width: 245px;
-    border: 1px solid #1B2557;
+    border: 1px solid #20512E;
 }
 
 .sugestao.noticia.thumb {
@@ -509,7 +509,7 @@ img{
 
 .noticia h4{
     max-width: 300px;
-    color: #1B2557;
+    color: #20512E;
     font-size: 20px;
     font-weight: 900;
     margin: 0 5% 10px;

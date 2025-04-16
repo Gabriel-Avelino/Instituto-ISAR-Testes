@@ -41,12 +41,8 @@
     height: 75%;
 }
 
-.turquoise{
-    color: #B08A4F;
-}
-
-.blue{
-    color: #1B2557;
+.green{
+    color: #20512E;
 }
 
 .text-about{
@@ -108,7 +104,7 @@
     gap: 2px;
     align-items: center;
     justify-content: space-evenly;
-    background-color: #1B2557
+    background-color: #20512E
 }
 
 .valores{
