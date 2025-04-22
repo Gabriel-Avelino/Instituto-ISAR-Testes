@@ -1,0 +1,67 @@
+main{
+    background-color: #f7f7f7;
+}
+
+.section.introduction.programas-banner{
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%), url(../img/Produtos.jpg);
+    background-position-x: center;
+    background-position-y: center;
+}
+
+.section.aviso{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px;
+}
+
+.section.programas{
+    display: grid;
+    min-height: 500px;
+    background-color: #f7f7f7;
+    margin-top: 20px;
+    padding: 5%;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    gap: 20px;
+    align-items: start;
+}
+
+.section.products a{
+    width: 100%;
+    text-decoration: none;
+}
+
+.programa{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.2s all ease;
+    padding: 20px;
+    border-radius: 15px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    box-shadow: -2px 5px 33px 6px rgba(0, 0, 0, 0.2);
+    min-height: 300px;
+    text-decoration: none;
+}
+
+.programa h4{
+    color: #fff;
+    font-family: 'Jumper';
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.product p{
+    color: #888;
+    font-size: 12px;
+}
+
+.product:hover{
+    box-shadow: rgba(0, 0, 0, 0.25) 0 30px 70px 0;
+}

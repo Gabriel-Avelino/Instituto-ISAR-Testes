@@ -18,13 +18,16 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path, include, re_path
-from isar.views import index, transparencia, contato, noticias, sobreNos, noticia, governanca
+from isar.views import index, transparencia, contato, noticias, sobreNos, noticia, governanca, programas, programa, projeto
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^summernote/', include('django_summernote.urls')),
     path('', index, name='home'),
     path('sobre-nos', sobreNos, name='sobre-nos'),
+    path('programas', programas, name='programas'),
+    path('programa/<int:id>', programa, name='programa'),
+    path('projeto/<int:id>', projeto, name='projeto'),
     path('governanca', governanca, name='governanca'),
     path('transparencia', transparencia, name='transparencia'),
     path('contato', contato, name='contato'),

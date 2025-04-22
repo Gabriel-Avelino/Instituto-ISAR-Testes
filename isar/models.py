@@ -11,8 +11,8 @@ def uploadFotoArea(instance, filename):
     return 'areas/{}-{}'.format(str(uuid.uuid4()), filename)
 
 def uploadFotoProjeto(instance, filename):
-    nome_projeto = instance.projeto.name
-    return 'projetos/{}/{}-{}'.format(str(uuid.uuid4()), nome_projeto, filename)
+    nome_projeto = instance.name
+    return 'projetos/{}/{}-{}'.format(nome_projeto, str(uuid.uuid4()), filename)
 
 class Tipo_Doc(models.Model):
     name = models.CharField(max_length=256, unique=True)

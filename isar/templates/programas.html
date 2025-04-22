@@ -1,0 +1,28 @@
+{% extends 'background.html' %}
+{% load static i18n %}
+{% block head_title %}
+    {% trans 'Programas - Instituto ISAR' %}
+{% endblock head_title %}
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/programas.css' %}">
+{% endblock extra_head %}
+{% block content %}
+    <main>
+        <div class="section introduction programas-banner">
+            <h1>Programas</h1>
+        </div>
+        {% if programas %}
+            <section class="section programas">
+                {% for programa in programas %}
+                    <a class="programa" href="{% url 'programa' programa.id %}" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #0000009f 100%), url('{{ programa.foto.url }}');">
+                        <h4>{{ programa.name }}</h4>
+                    </a>
+                {% endfor %}
+            </section>
+        {% else %}
+            <section class="section aviso">
+                <h4>Não há programas cadastrados</h4>
+            </section>
+        {% endif %}
+    </main>
+{% endblock content%}
