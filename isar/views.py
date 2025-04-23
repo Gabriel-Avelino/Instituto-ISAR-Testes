@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.core.mail import send_mail
-from .models import Documento, Programa, Projeto
+from .models import Documento, Programa, Projeto, ImagemPrograma, ImagemProjeto
 from django.views.decorators.http import require_GET
 from blog.models import Post, ImagemNoticia
 from collections import OrderedDict
@@ -89,7 +89,8 @@ def programas(request):
 def programa(request, id):
     programa = Programa.objects.get(id=id)
     projetos = Projeto.objects.filter(programa=programa)
-    return render(request, 'programa.html', {'programa': programa, 'projetos': projetos})
+    fotos = ImagemPrograma.objects.filter(programa=programa)
+    return render(request, 'programa.html', {'programa': programa, 'projetos': projetos, 'fotos': fotos})
 
 def projeto(request, id):
     projeto = Projeto.objects.get(id=id)

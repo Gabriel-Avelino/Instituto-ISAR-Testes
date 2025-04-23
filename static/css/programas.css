@@ -18,19 +18,31 @@ main{
 
 .section.programas{
     display: grid;
-    min-height: 500px;
+    min-height: 300px;
     background-color: #f7f7f7;
-    margin-top: 20px;
-    padding: 5%;
+    padding: 30px 5%;
     grid-template-columns: repeat(4, 1fr);
     justify-items: center;
     gap: 20px;
     align-items: start;
 }
 
-.section.products a{
-    width: 100%;
-    text-decoration: none;
+.section.projetos{
+    padding: 80px 5%;
+}
+
+.section.projetos h3{
+    font-family: 'Jumper';
+}
+
+.projetos .projetos-container{
+    display: grid;
+    min-height: 300px;
+    background-color: #f7f7f7;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    gap: 20px;
+    align-items: start;
 }
 
 .programa{
@@ -48,6 +60,8 @@ main{
     box-shadow: -2px 5px 33px 6px rgba(0, 0, 0, 0.2);
     min-height: 300px;
     text-decoration: none;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .programa h4{
@@ -55,6 +69,55 @@ main{
     font-family: 'Jumper';
     font-weight: 500;
     text-decoration: none;
+}
+
+.intro{
+    padding: 80px 5% 0;
+}
+
+.programa-info .text{
+    padding: 80px 5%;
+}
+
+.programa-info .text h3{
+    font-family: 'Jumper';
+}
+
+.areas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 5%;
+    background-color: #259460;
+}
+
+.areas h3{
+    font-family: 'jumper';
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.areas .areas-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 200px);
+    width: 100%;
+    justify-content: space-around;
+    box-sizing: border-box;
+}
+
+.area{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.area img{
+    max-width: 100px;
+}
+
+.area p{
+    font-weight: 700;
+    color: #fff;
 }
 
 .product p{

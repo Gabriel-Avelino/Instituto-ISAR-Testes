@@ -8,22 +8,48 @@
 {% endblock extra_head %}
 {% block content %}
     <main>
-        <div class="section introduction programas-banner">
+        <div class="section introduction programa-banner" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #0000009f 100%), url('{{ programa.foto.url }}');">
             <h1>{{ programa.name }}</h1>
         </div>
-        {% if projetos %}
-            <section class="section programas">
-                {% for projeto in projetos %}
-                    <a class="programa" href="{% url 'projeto' projeto.id %}" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #0000009f 100%), url('{{ projeto.foto.url }}');">
-                        <img src="" alt="">
-                        <h4>{{ projeto.name }}</h4>
-                    </a>
-                {% endfor %}
-            </section>
-        {% else %}
-            <section class="section aviso">
-                <h4>Não há projetos cadastrados para esse programa</h4>
-            </section>
-        {% endif %}
+        <section class="programa-info">
+            <div class="text">
+                    <div>
+                        <h3>Sobre o Programa</h3>
+                        <p>{{ programa.descricao|safe }}</p>
+                    </div>
+                    {% for foto in fotos %}
+                        <img src="{{ foto.file.url }}" alt="">
+                    {% endfor %}
+            </div>
+            <div class="areas">
+                <h3>Principais Áreas de atuação</h3>
+                <div class="areas-container"> 
+                    {% for area in programa.areasAtuacao.all %}
+                        <div class="area">
+                            <img src="/media/{{ area.foto }}" alt="">
+                            <p>{{ area.name }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div class="section projetos">
+                <h3>Projetos</h3>
+                {% if projetos %}
+                    <div class="projetos-container">
+                        {% for projeto in projetos %}
+                            <a class="programa" href="{% url 'projeto' projeto.id %}" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #0000009f 100%), url('{{ projeto.foto.url }}');">
+                                <img src="" alt="">
+                                <h4>{{ projeto.name }}</h4>
+                            </a>
+                        {% endfor %}
+                        </div>
+                {% else %}
+                    <div class="section aviso">
+                        <h4>Não há projetos cadastrados para esse programa</h4>
+                    </div>
+                {% endif %}
+            </div>
+        </section>
     </main>
 {% endblock content%}
