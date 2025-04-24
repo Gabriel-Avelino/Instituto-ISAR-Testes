@@ -1,0 +1,79 @@
+.section.projeto{
+    display: flex;
+    flex-direction: column;
+    padding: 80px 7%;
+    gap: 50px;
+}
+
+.projeto .projeto-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.projeto h3{
+    color: #000;
+    font-family: 'Jumper';
+    font-weight: 500;
+}
+
+.projeto-info .sobre{
+    width: 50%;
+}
+
+.projeto-info .sobre h3{
+    color: #000;
+    font-family: 'Jumper';
+    font-weight: 500;
+}
+
+.projeto .objetivos h3{
+    color: #000;
+    font-family: 'Jumper';
+    font-weight: 500;
+}
+
+.projeto-info img{
+    width: 40%;
+}
+
+.fotos {
+    width: 50%;
+    position: relative;
+    margin-bottom: 50px;
+    overflow: hidden; /* Adicione isso para esconder as fotos que estão fora da visão */
+}
+
+.fotos-galery {
+    border-radius: 30px;
+}
+
+.foto-galery {
+    display: flex;
+    transition: transform 0.5s ease; /* Para animação de transição suave */
+    width: 100%;
+    border-radius: 30px;
+}
+
+.foto {
+    position: relative;
+    min-width: 100%; /* Cada item ocupará 100% da largura da galeria */
+    box-sizing: border-box;
+}
+
+.foto img {
+    width: 100%; /* A imagem vai ocupar 100% da largura do contêiner .foto */
+    height: auto;
+    margin: 0;
+    border-radius: 30px;
+}
+
+.foto p{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5));
+    border-radius: 0 0 30px 30px;
+    color: #fff;
+    padding: 20px 20px;
+}
