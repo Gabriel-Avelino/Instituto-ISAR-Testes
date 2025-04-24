@@ -76,7 +76,18 @@ main{
 }
 
 .programa-info .text{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     padding: 80px 5%;
+}
+
+.programa-info .text div{
+    width: 50%;
+}
+
+.programa-info .text img{
+    width: 40%;
 }
 
 .programa-info .text h3{
