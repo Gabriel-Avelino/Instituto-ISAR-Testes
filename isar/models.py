@@ -5,14 +5,24 @@ from unicodedata import normalize
 
 # Create your models here.
 def uploadFotoPrograma(instance, filename):
-    return 'programas/{}-{}'.format(str(uuid.uuid4()), filename)
+    if isinstance(instance, Programa):
+        nome_programa = instance.name
+    else:
+        nome_programa = instance.programa.name
+    return 'programas/{}/{}-{}'.format(normalize('NFKD', nome_programa).encode('ascii', 'ignore').decode('ascii'), str(uuid.uuid4()), filename)
 
 def uploadFotoArea(instance, filename):
     return 'areas/{}-{}'.format(str(uuid.uuid4()), filename)
 
+def uploadFotoParceiro(instance, filename):
+    return 'parceiros/{}-{}'.format(str(uuid.uuid4()), filename)
+
 def uploadFotoProjeto(instance, filename):
-    nome_projeto = instance.name
-    return 'projetos/{}/{}-{}'.format(nome_projeto, str(uuid.uuid4()), filename)
+    if isinstance(instance, Projeto):
+        nome_projeto = instance.name
+    else:
+        nome_projeto = instance.projeto.name
+    return 'projetos/{}/{}-{}'.format(normalize('NFKD', nome_projeto).encode('ascii', 'ignore').decode('ascii'), str(uuid.uuid4()), filename)
 
 class Tipo_Doc(models.Model):
     name = models.CharField(max_length=256, unique=True)
@@ -43,7 +53,7 @@ class Documento (models.Model):
             super(Documento, self).save(*args, **kwargs)
     
 class AreaAtuacao(models.Model):
-    name = models.CharField(max_length=256)
+    name = models.CharField(max_length=256, unique=True)
     foto = models.FileField(upload_to=uploadFotoArea)
 
     def __str__(self):
@@ -53,7 +63,7 @@ class AreaAtuacao(models.Model):
         verbose_name_plural = 'Areas Atuacao'
     
 class Programa(models.Model):
-    name = models.CharField(max_length=256)
+    name = models.CharField(max_length=256, unique=True)
     foto = models.FileField(upload_to=uploadFotoPrograma)
     descricao = models.TextField(blank=True, null=True)
     areasAtuacao = models.ManyToManyField(AreaAtuacao, related_name='programas')
@@ -76,8 +86,8 @@ class ImagemPrograma(models.Model):
         verbose_name_plural = 'Imagens Programas'
 
 class Parceiro(models.Model):
-    name = models.CharField(max_length=256)
-    foto = models.FileField(upload_to=uploadFotoArea)
+    name = models.CharField(max_length=256, unique=True)
+    foto = models.FileField(upload_to=uploadFotoParceiro)
 
     def __str__(self):
         return self.name
@@ -86,7 +96,7 @@ class Parceiro(models.Model):
         verbose_name_plural = 'Parceiros'
 
 class Projeto(models.Model):
-    name = models.CharField(max_length=256)
+    name = models.CharField(max_length=256, unique=True)
     foto = models.FileField(upload_to=uploadFotoProjeto)
     descricao = models.TextField(blank=True, null=True)
     programa = models.ForeignKey(Programa, on_delete=models.CASCADE)
@@ -102,7 +112,7 @@ class Projeto(models.Model):
 class ImagemProjeto(models.Model):
     file = models.FileField(upload_to= uploadFotoProjeto)
     descricao = models.TextField()
-    programa = models.ForeignKey(Programa, on_delete=models.CASCADE)
+    projeto = models.ForeignKey(Projeto, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.file.name

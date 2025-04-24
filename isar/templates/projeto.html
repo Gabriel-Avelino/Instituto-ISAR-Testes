@@ -4,12 +4,42 @@
     {% trans 'Programas - Instituto ISAR' %}
 {% endblock head_title %}
 {% block extra_head %}
-    <link rel="stylesheet" href="{% static 'css/programas.css' %}">
+    <link rel="stylesheet" href="{% static 'css/projeto.css' %}">
 {% endblock extra_head %}
 {% block content %}
     <main>
-        <div class="section introduction programas-banner">
+        <div class="section introduction" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #0000009f 100%), url('{{ projeto.foto.url }}');">
             <h1>{{ projeto.name }}</h1>
         </div>
+        <section class="section projeto">
+            <div class="projeto-info">
+                <div>
+                    <h3>Conheça o Projeto</h3>
+                    <div>{{ projeto.descricao | safe }}</div>
+                </div>
+                <img src="{{ projeto.foto.url }}" alt="">
+            </div>
+            <div>
+                <h3>Objetivos</h3>
+                <div>{{ projeto.objetivos | safe }}</div>
+            </div>
+            <div class="fotos">
+                {% if fotos|length > 1 %}
+                    <button class="foto-controls controls-previous"></button>
+                {% endif %}
+                <div class="fotos-galery galery-wrapper">
+                    <div class="galery foto-galery">
+                        {% for foto in fotos %}
+                            <div class="foto item2 {% if forloop.first %}current-item{% endif %}">
+                                <img src="{{ foto.file.url  }}" alt="">
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% if fotos|length > 1 %}
+                    <button class="foto-controls controls-next"></button>
+                {% endif %}
+            </div> 
+        </section>
     </main>
 {% endblock content%}

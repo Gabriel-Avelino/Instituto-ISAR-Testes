@@ -94,4 +94,5 @@ def programa(request, id):
 
 def projeto(request, id):
     projeto = Projeto.objects.get(id=id)
-    return render(request, 'projeto.html', {'projeto': projeto})
+    fotos = ImagemProjeto.objects.filter(projeto=projeto)
+    return render(request, 'projeto.html', {'projeto': projeto, 'fotos': fotos})
