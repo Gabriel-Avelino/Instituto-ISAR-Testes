@@ -10,10 +10,19 @@
     gap: 60px;
 }
 
+.section.governanca div{
+    display: flex;
+    flex-direction: column;
+}
+
+.section.governanca div img{
+    align-self: center;
+    max-width: 600px;
+}
+
 .section.governanca div h2{
     color: #259460;
     font-family: "Inter", sans-serif;
     font-weight: 700;
     margin-bottom: 20px;
-    align-self: center;
 }
