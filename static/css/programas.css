@@ -35,6 +35,7 @@ main{
 }
 
 .section.projetos h3{
+    color: #20512E;
     font-family: 'Jumper';
 }
 
@@ -49,6 +50,7 @@ main{
 }
 
 .programa{
+    color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -68,10 +70,14 @@ main{
 }
 
 .programa h4{
-    color: #fff;
     font-family: 'Jumper';
     font-weight: 500;
     text-decoration: none;
+}
+
+.programa:hover{
+    color: #259460;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 30px 70px 0;
 }
 
 .intro{
@@ -101,8 +107,10 @@ main{
     height: auto;
 }
 
-.programa-info .text h3{
+.programa-info .text .sobre h3{
+    color: #259460;
     font-family: 'Jumper';
+    font-weight: 500;
 }
 
 .programa-info .text p{
@@ -120,6 +128,7 @@ main{
 
 .areas h3{
     font-family: 'jumper';
+    font-weight: 500;
     color: #fff;
 }
 
@@ -145,13 +154,4 @@ main{
 .area p{
     font-weight: 700;
     color: #fff;
-}
-
-.product p{
-    color: #888;
-    font-size: 12px;
-}
-
-.product:hover{
-    box-shadow: rgba(0, 0, 0, 0.25) 0 30px 70px 0;
 }
