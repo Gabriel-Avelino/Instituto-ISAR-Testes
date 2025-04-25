@@ -259,11 +259,11 @@
     }
 
     .contato .info{
-        padding: 65px 10%;
+        padding: 50px 5%;
     }
 
     .contato .form-contact{
-        padding: 65px 10%;
+        padding: 50px 5%;
     }
 }
 
@@ -469,16 +469,19 @@
 }
 
 @media (max-width: 760px) {
-    .contato .form-contact {
-        border: none;
-    }
     .contato{
         margin: 0;
         display: flex;
         flex-direction: column;
     }
+    .contato .info{
+        padding: 80px 10%;
+        margin: 0;
+    }
     .contato .form-contact {
-        padding: 0 10% 65px;
+        border: none;
+        margin: 0;
+        padding: 0 10% 80px;
     }
     .noticias-page .noticia h4{
         margin: 0 20px 10px;
@@ -794,12 +797,12 @@
 }
 
 @media (max-width: 340px) {
-    .contato .info{
-        padding: 65px 5%
+    .contato .info {
+        padding: 80px 5%;
     }
-
+    
     .contato .form-contact {
-        padding: 0 5% 65px;
+        padding: 0 5% 80px;
     }
 
     .endereco-div iframe{

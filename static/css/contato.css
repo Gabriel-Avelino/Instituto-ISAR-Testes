@@ -27,7 +27,8 @@
     display: flex;
     flex-direction: column;
     gap: 80px;
-    padding: 65px 15%;
+    margin: 65px 0;
+    padding: 50px 15%;
     background-color: #fff;
 }
 
@@ -80,7 +81,8 @@
 .contato .form-contact{
     border-left: 1px #20512E solid;
     background-color: #fff;
-    padding: 65px 15%;
+    margin: 65px 0;
+    padding: 50px 15%;
 }
 
 .contato .form-contact h3{
