@@ -65,6 +65,12 @@
 }
 
 @media (max-width:990px) {
+    .section.programas{
+        grid-template-columns: repeat(3, 1fr);
+    } 
+    .projetos .projetos-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
     .img-about {
         width: 45%;
     }
@@ -82,9 +88,6 @@
         display: flex;
         flex-direction: column;
     }
-    .middle-image{
-        border-radius: 30px;
-    }
     .grafismo{
         width: 50%;
     }
@@ -92,13 +95,6 @@
         flex-direction: column;
         padding: 5% 5% 0%;
         align-items: center;
-    }
-    .sobre{
-        position: relative;
-        width: 75%;
-        max-width: 400px;
-        max-height: 400px;
-        aspect-ratio: 1 / 1;
     }
     .quem-text{
         padding: 10% 0 10% 0%;
@@ -261,6 +257,14 @@
         background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 120%), url(../img/familia-funcional.jpeg) ;
         background-position: top;
     }
+
+    .contato .info{
+        padding: 65px 10%;
+    }
+
+    .contato .form-contact{
+        padding: 65px 10%;
+    }
 }
 
 @media (max-width:840px) {
@@ -341,6 +345,31 @@
     }
     .product-description img{
         width: 70%;
+    }
+    .programa-info .text{
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    .programa-info .text img {
+        width: 100%;
+        height: auto;
+        max-width: 400px;
+    }
+    .programa-info .text .sobre {
+        width: 100%;
+    }
+    .projeto .projeto-info{
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+    }
+    .projeto-info .sobre{
+        width: 100%;
+    }
+    .projeto-info img{
+        width: 100%;
+        max-width: 400px;
     }
 }
 
@@ -440,9 +469,16 @@
 }
 
 @media (max-width: 760px) {
+    .contato .form-contact {
+        border: none;
+    }
     .contato{
+        margin: 0;
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
+    }
+    .contato .form-contact {
+        padding: 0 10% 65px;
     }
     .noticias-page .noticia h4{
         margin: 0 20px 10px;
@@ -456,6 +492,14 @@
 }
 
 @media (max-width: 690px) {
+    .section.programas{
+        grid-template-columns: repeat(2, 1fr);
+    } 
+
+    .projetos .projetos-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .section.introduction .line{
         display: none;
     }
@@ -636,6 +680,16 @@
 }
 
 @media (max-width:475px) {
+    .section.programas{
+        display: flex;
+        flex-direction: column;
+        padding: 10% 17% 80px;
+    } 
+    .projetos .projetos-container {
+        display: flex;
+        flex-direction: column;
+        padding: 0 10%;
+    }
     .text.white {
         font-size: 1.0em;
     }
@@ -722,7 +776,7 @@
         font-size: 14px;
     }
     .contact a{
-        font-size: 12px;
+        font-size: 14px;
     }
     .contact p{
         font-size: 12px;
@@ -741,7 +795,11 @@
 
 @media (max-width: 340px) {
     .contato .info{
-        padding: 10% 5%
+        padding: 65px 5%
+    }
+
+    .contato .form-contact {
+        padding: 0 5% 65px;
     }
 
     .endereco-div iframe{

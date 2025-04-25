@@ -23,12 +23,15 @@ main{
     padding: 30px 7%;
     grid-template-columns: repeat(4, 1fr);
     justify-items: center;
-    gap: 20px;
+    gap: 20px 2%;
     align-items: start;
 }
 
 .section.projetos{
+    display: flex;
+    flex-direction: column;
     padding: 80px 7%;
+    gap: 15px;
 }
 
 .section.projetos h3{
@@ -58,7 +61,7 @@ main{
     height: auto;
     aspect-ratio: 1 / 1;
     box-shadow: -2px 5px 33px 6px rgba(0, 0, 0, 0.2);
-    min-height: 300px;
+    min-height: 150px;
     text-decoration: none;
     background-repeat: no-repeat;
     background-size: cover;
@@ -75,6 +78,10 @@ main{
     padding: 80px 7% 0;
 }
 
+.intro p{
+    text-align: justify;
+}
+
 .programa-info .text{
     display: flex;
     flex-direction: row;
@@ -83,15 +90,23 @@ main{
 }
 
 .programa-info .text .sobre{
+    display: flex;
+    flex-direction: column;
     width: 50%;
+    gap: 15px;
 }
 
 .programa-info .text img{
     width: 40%;
+    height: auto;
 }
 
 .programa-info .text h3{
     font-family: 'Jumper';
+}
+
+.programa-info .text p{
+    text-align: justify;
 }
 
 .areas{
@@ -100,12 +115,12 @@ main{
     align-items: center;
     padding: 30px 7%;
     background-color: #259460;
+    gap: 15px;
 }
 
 .areas h3{
     font-family: 'jumper';
     color: #fff;
-    margin-bottom: 20px;
 }
 
 .areas .areas-container{
@@ -114,6 +129,7 @@ main{
     width: 100%;
     justify-content: space-around;
     box-sizing: border-box;
+    gap: 30px;
 }
 
 .area{

@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     padding: 80px 7%;
-    gap: 50px;
+    gap: 80px;
 }
 
 .projeto .projeto-info{
@@ -18,7 +18,10 @@
 }
 
 .projeto-info .sobre{
+    display: flex;
+    flex-direction: column;
     width: 50%;
+    gap: 15px;
 }
 
 .projeto-info .sobre h3{
@@ -31,6 +34,20 @@
     color: #000;
     font-family: 'Jumper';
     font-weight: 500;
+}
+
+.projeto .objetivos {
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    gap: 15px;
+}
+
+.projeto .fotos-projeto{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
 }
 
 .projeto-info img{
@@ -94,21 +111,22 @@
 }
 
 .fotos {
-    width: 50%;
+    width: 100%;
     position: relative;
     margin-bottom: 50px;
     overflow: hidden; /* Adicione isso para esconder as fotos que estão fora da visão */
+    max-width: 600px;
 }
 
 .fotos-galery {
-    border-radius: 30px;
+    border-radius: 15px;
 }
 
 .foto-galery {
     display: flex;
     transition: transform 0.5s ease; /* Para animação de transição suave */
     width: 100%;
-    border-radius: 30px;
+    border-radius: 15px;
 }
 
 .foto {

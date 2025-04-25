@@ -1,8 +1,8 @@
 venv
 .env
 db.sqlite3
-imobiliaria/__pycache__
-imobiliaria/migrations/__pycache__
+isar/__pycache__
+isar/migrations/__pycache__
 blog/__pycache__
 blog/migrations/__pycache__
 core/__pycache__

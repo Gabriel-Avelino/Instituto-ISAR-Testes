@@ -17,13 +17,13 @@
                     <h3>Conheça o Projeto</h3>
                     <div>{{ projeto.descricao | safe }}</div>
                 </div>
-                <img src="{{ projeto.foto.url }}" alt="">
+                <img class="middle-image" src="{{ projeto.foto.url }}" alt="">
             </div>
             <div class="objetivos">
                 <h3>Objetivos</h3>
                 <div>{{ projeto.objetivos | safe }}</div>
             </div>
-            <div>
+            <div class="fotos-projeto">
                 <h3>Galeria</h3>
                 <div class="fotos">
                     {% if fotos|length > 1 %}
